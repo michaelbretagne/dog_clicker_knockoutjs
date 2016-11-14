@@ -1,13 +1,7 @@
-var ViewModel = function() {
+var Dog = function() {
     this.clickCount = ko.observable(0);
     this.name = ko.observable("Beige");
     this.imgSrc = ko.observable("img/dog1.jpg");
-    // this.level = ko.observable();
-
-    this.incrementCounter = function() {
-        this.clickCount(this.clickCount() + 1);
-    };
-
     this.level = ko.computed(function() {
         if (this.clickCount() < 5) {
             level = "New Puppy";
@@ -27,6 +21,23 @@ var ViewModel = function() {
             return level;
         }
     }, this);
+    this.dogList = ko.observableArray([
+    { nickname: 'Beige' },
+    { nickname: 'Milou' },
+    { nickname: 'Pif' },
+    { nickname: 'Paf' },
+    { nickname: 'Junior' }
+    ]);
+};
+
+var ViewModel = function() {
+
+    this.currentDog = ko.observable(new Dog());
+
+    this.incrementCounter = function() {
+        this.currentDog().clickCount(this.currentDog().clickCount() + 1);
+    };
+
 };
 
 ko.applyBindings(new ViewModel());
