@@ -18,53 +18,25 @@
             <div class="col-md-6 text-center">
                 <div data-bind="with: currentDog" id="dog">
                     <h2 data-bind="text: name" id="dog_name"></h2>
-                    <div data-bind="text: clickCount" id="dog_count"></div>
+                    <div><span data-bind="text: clickCount, dd" id="dog_count"></span> clicks</div>
                     <div data-bind="text: level" id="level"></div>
                     <img id="dog_img" src="" alt="dog" data-bind="click: $parent.incrementCounter, attr: {src: imgSrc}">
+                    <h5>Nicknames</h5>
+                    <ul id="nicknames" data-bind="foreach: nicknames">
+                        <li class="list_nickname" data-bind="text: $data"></li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-md-6 text-center" data-bind="with: currentDog">
+            <div class="col-md-6 text-center">
                 <h3>Select a dog</h3>
                 <ul data-bind="foreach: dogList" id="dog_list">
-                    <li class="list" data-bind="text: nickname"></li>
+                    <li class="list" data-bind="text: name, click: $parent.setDog"></li>
                 </ul>
             </div>
-       <!--      <div class="col-md-6 text-center">
-                <div class="col-md-12">
-                    <button id="adminBtn" name="adminBtn" value="admin">Admin</button>
-                </div>
-                <div id="admin_form">
-                    <form id="form">
-                        <div class="col col-md-4 text-right">
-                            <label for="name">Name</label>
-                        </div>
-                        <div class="col col-md-8 text-left">
-                            <input type="text" id="input_name" name="name">
-                        </div>
-                        <div class="col col-md-4 text-right">
-                            <label for="url">Img URL</label>
-                        </div>
-                        <div class="col col-md-8 text-left">
-                            <input type="text" id="input_url" name="url">
-                        </div>
-                        <div class="col col-md-4 text-right">
-                            <label for="clicks">Number of clicks</label>
-                        </div>
-                        <div class="col col-md-8 text-left">
-                            <input type="text" id="input_clicks" name="clicks">
-                        </div>
-                        <div class="col col-md-4"></div>
-                    </form>
-                    <div class="col col-md-8 text-left">
-                        <button id="adminSave" >Save</button>
-                        <button id="adminCancel" >Cancel</button>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </div>
-    <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js"></script>
-    <script type='text/javascript' src="js/script.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
 </body>
 
 </html>
